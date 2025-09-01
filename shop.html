@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Time Flow BD</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/logo.jpg" type="image/icon type">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="index.html">Time Flow BD</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="shop.html" class="nav-link active">Shop</a></li>
+                    <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#" class="cart-icon" id="cartIcon">🛒 <span class="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shop Section -->
+    <main class="shop-main">
+        <!-- Shop Header -->
+        <section class="shop-header">
+            <div class="container">
+                <h2 class="animate-on-scroll fade-in-up">Our Watch Collection</h2>
+                <p class="animate-on-scroll fade-in-up delay-1">Discover our exquisite range of timepieces, crafted with precision and style.</p>
+            </div>
+        </section>
+
+        <!-- Shop Content -->
+        <section class="shop-content">
+            <div class="container">
+                <div class="shop-layout">
+                    <!-- Filters Sidebar -->
+                    <aside class="filters-sidebar">
+                        <div class="filter-group">
+                            <h3>Categories</h3>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="chronograph" checked> Chronograph
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="automatic" checked> Automatic
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="quartz" checked> Quartz
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="diver" checked> Diver
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="dress" checked> Dress
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h3>Price Range</h3>
+                            <div class="price-range">
+                                <input type="range" min="5000" max="100000" value="100000" class="slider" id="priceRange">
+                                <div class="price-values">
+                                    <span>৳ 5,000</span>
+                                    <span id="priceRangeValue">৳ 100,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h3>Brand</h3>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="brand" value="timeflow" checked> Time Flow
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="brand" value="prestige" checked> Prestige
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="brand" value="elite" checked> Elite
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="brand" value="heritage" checked> Heritage
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="btn primary-btn apply-filters">Apply Filters</button>
+                        <button class="btn secondary-btn reset-filters">Reset Filters</button>
+                    </aside>
+
+                    <!-- Products Grid -->
+                    <div class="products-container">
+                        <div class="products-header">
+                            <p class="results-count">Showing <span id="productsCount">20</span> products</p>
+                            <div class="sort-options">
+                                <label for="sortSelect">Sort by:</label>
+                                <select id="sortSelect">
+                                    <option value="default">Default</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="name">Name: A to Z</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="products-grid" id="productsGrid">
+                            <!-- Products will be loaded dynamically via JavaScript -->
+                        </div>
+
+                        <div class="pagination">
+                            <button class="btn secondary-btn prev-page" disabled>Previous</button>
+                            <span class="page-info">Page 1 of 2</span>
+                            <button class="btn secondary-btn next-page">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart-message">
+                <p>Your cart is empty</p>
+                <a href="shop.html" class="btn primary-btn">Continue Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <p>Total: <span id="cartTotal">৳ 0</span></p>
+            </div>
+            <button class="btn primary-btn checkout-btn" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Time Flow BD</h4>
+                    <p>Exquisite Timepieces for Every Moment.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="shop.html">Shop Now</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Email: info@timeflowbd.com</p>
+                    <p>Phone: +880 171 0588726</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578797218701"><i class="fab fa-facebook-f"></i> Facebook</a>
+                        <a href="https://www.instagram.com/time_flow_bd/"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Time Flow BD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+
+</html>
