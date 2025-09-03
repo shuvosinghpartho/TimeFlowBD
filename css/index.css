@@ -1,4 +1,53 @@
 /* Basic Reset & Typography */
+
+
+.video-section {
+  position: relative;
+  width: 100%;
+  background: black; /* fallback for letterboxing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Video fully visible without cropping */
+.video-section video {
+  width: 100%;
+  height: auto; /* maintain aspect ratio */
+  max-height: 100vh; /* optional: keep within viewport */
+  display: block;
+}
+
+/* Overlay for text and controls */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  pointer-events: none;
+}
+
+/* Responsive text */
+.video-overlay h2 {
+  font-size: 2.5rem;
+}
+
+.video-overlay p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -537,4 +586,24 @@ ul {
     .call-to-action h3 {
         font-size: 1.4em;
     }
+}
+
+
+
+@media (max-width: 768px) {
+  .video-overlay h2 {
+    font-size: 1.8rem;
+  }
+  .video-overlay p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-overlay h2 {
+    font-size: 1.5rem;
+  }
+  .video-overlay p {
+    font-size: 0.9rem;
+  }
 }
