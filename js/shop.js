@@ -1,209 +1,207 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Sample product data (20 products)
     const products = [
         {
             id: 1,
-            name: "Elegant Chrono",
-            category: "chronograph",
-            brand: "timeflow",
-            price: 29900,
-            originalPrice: 34900,
-            image: "assets/watch2.jpg",
-            description: "Sophistication meets functionality with this elegant chronograph timepiece."
+            name: "Citizen-white",
+            category: "automatic",
+            brand: "Citizen",
+            price: 1200,
+            originalPrice: 1530,
+            image: "assets/Citizen - 1200-1.jpg",
+            description: "Precision and innovation unite in this timeless Citizen watch, crafted for elegance and everyday reliability."
         },
         {
             id: 2,
-            name: "Classic Automatic",
+            name: "Citizen-black",
             category: "automatic",
-            brand: "prestige",
-            price: 34900,
-            originalPrice: 39900,
-            image: "assets/watch3.jpg",
-            description: "Timeless design, enduring quality with self-winding mechanical movement."
+            brand: "Citizen",
+            price: 1200,
+            originalPrice: 1356,
+            image: "assets/Citizen - 1200-2.jpg",
+            description: "Precision and innovation unite in this timeless Citizen watch, crafted for elegance and everyday reliability."
         },
         {
             id: 3,
-            name: "Modern Minimalist",
-            category: "quartz",
-            brand: "elite",
-            price: 19900,
-            originalPrice: 24900,
-            image: "assets/watch4.jpg",
-            description: "Clean lines, contemporary style for the modern individual."
+            name: "Citizen-golden-blue",
+            category: "automatic",
+            brand: "Citizen",
+            price: 1200,
+            originalPrice: 1680,
+            image: "assets/Citizen - 1200-3.jpg",
+            description: "Precision and innovation unite in this timeless Citizen watch, crafted for elegance and everyday reliability."
         },
         {
             id: 4,
-            name: "Deep Sea Diver",
-            category: "diver",
-            brand: "timeflow",
-            price: 45900,
-            originalPrice: 51900,
-            image: "assets/watch1.jpg",
-            description: "Professional diving watch with water resistance up to 300m."
+            name: "Citizen-golden-black",
+            category: "automatic",
+            brand: "Citizen",
+            price: 1200,
+            originalPrice: 1440,
+            image: "assets/Citizen - 1200-4.jpg",
+            description: "Precision and innovation unite in this timeless Citizen watch, crafted for elegance and everyday reliability."
         },
         {
             id: 5,
-            name: "Executive Dress",
-            category: "dress",
-            brand: "prestige",
-            price: 27900,
-            originalPrice: 32900,
-            image: "assets/watch5.jpg",
+            name: "Cureen-black",
+            category: "automatic",
+            brand: "Cureen",
+            price: 750,
+            originalPrice: 870,
+            image: "assets/Cureen-750-3.jpg",
             description: "Elegant dress watch perfect for formal occasions and business settings."
         },
         {
             id: 6,
-            name: "Vintage Heritage",
+            name: "Cureen-brown",
             category: "automatic",
-            brand: "heritage",
-            price: 38900,
-            originalPrice: 44900,
-            image: "assets/watch2.jpg",
+            brand: "Cureen",
+            price: 750,
+            originalPrice: 850,
+            image: "assets/Cureen-750-2.jpg",
             description: "Inspired by classic designs from the golden age of watchmaking."
         },
         {
             id: 7,
-            name: "Sport Chronograph",
-            category: "chronograph",
-            brand: "elite",
-            price: 31900,
-            originalPrice: 37900,
-            image: "assets/watch3.jpg",
+            name: "Cureen-round",
+            category: "automatic",
+            brand: "Cureen",
+            price: 750,
+            originalPrice: 870,
+            image: "assets/Cureen-750-1.jpg",
             description: "Robust sports chronograph with tachymeter bezel for active lifestyles."
         },
         {
             id: 8,
-            name: "Moonphase Classic",
+            name: "Poydager",
             category: "dress",
-            brand: "prestige",
-            price: 52900,
-            originalPrice: 59900,
-            image: "assets/watch4.jpg",
+            brand: "Poydager",
+            price: 850,
+            originalPrice: 960,
+            image: "assets/Poydager- 850-1.jpg",
             description: "Sophisticated timepiece with moonphase complication and date display."
         },
         {
             id: 9,
-            name: "Professional Diver",
+            name: "Poydager",
             category: "diver",
-            brand: "timeflow",
-            price: 48900,
-            originalPrice: 54900,
-            image: "assets/watch5.jpg",
+            brand: "Poydager",
+            price: 850,
+            originalPrice: 960,
+            image: "assets/Poydager- 850-2.jpg",
             description: "Certified professional diving watch with luminescent markers and bezel."
         },
         {
             id: 10,
-            name: "Slim Quartz",
+            name: "Poydager",
             category: "quartz",
-            brand: "elite",
-            price: 15900,
-            originalPrice: 19900,
-            image: "assets/watch1.jpg",
+            brand: "Poydager",
+            price: 850,
+            originalPrice: 1020,
+            image: "assets/Poydager- 850-3.jpg",
             description: "Ultra-slim profile with Japanese quartz movement for precision timekeeping."
         },
         {
             id: 11,
-            name: "GMT Master",
+            name: "Poydager",
             category: "chronograph",
-            brand: "prestige",
-            price: 41900,
-            originalPrice: 47900,
-            image: "assets/watch2.jpg",
+            brand: "Poydager",
+            price: 850,
+            originalPrice: 961,
+            image: "assets/Poydager- 850-4.jpg",
             description: "Dual time zone functionality for frequent travelers and global professionals."
         },
         {
             id: 12,
-            name: "Automatic Day-Date",
+            name: "Tubler",
             category: "automatic",
-            brand: "heritage",
-            price: 36900,
-            originalPrice: 42900,
-            image: "assets/watch3.jpg",
+            brand: "Tubler",
+            price: 650,
+            originalPrice: 750,
+            image: "assets/Tubler-650-1.jpg",
             description: "Self-winding movement with day and date complications for practicality."
         },
         {
             id: 13,
-            name: "Carbon Fiber Sport",
+            name: "Tubler",
             category: "quartz",
-            brand: "elite",
-            price: 27900,
-            originalPrice: 32900,
-            image: "assets/watch4.jpg",
+            brand: "Tubler",
+            price: 650,
+            originalPrice: 750,
+            image: "assets/Tubler-650-2.jpg",
             description: "Lightweight carbon fiber case with sporty aesthetics and durability."
         },
         {
             id: 14,
-            name: "Rose Gold Dress",
+            name: "Tubler",
             category: "dress",
-            brand: "prestige",
-            price: 45900,
-            originalPrice: 51900,
-            image: "assets/watch5.jpg",
+            brand: "Tubler",
+            price: 650,
+            originalPrice: 750,
+            image: "assets/Tubler-650-3.jpg",
             description: "Elegant rose gold plating with genuine leather strap for formal occasions."
         },
         {
             id: 15,
-            name: "Chronograph Pro",
-            category: "chronograph",
-            brand: "timeflow",
-            price: 38900,
-            originalPrice: 44900,
-            image: "assets/watch1.jpg",
+            name: "Tubler",
+            category: "dress",
+            brand: "Tubler",
+            price: 650,
+            originalPrice: 750,
+            image: "assets/Tubler-650-4.jpg",
             description: "Professional chronograph with tachymeter and 12-hour totalizer functions."
         },
         {
             id: 16,
-            name: "Automatic Diver",
+            name: "Hublot",
             category: "diver",
-            brand: "heritage",
-            price: 42900,
-            originalPrice: 48900,
-            image: "assets/watch2.jpg",
+            brand: "Hublot",
+            price: 1300,
+            originalPrice: 1500,
+            image: "assets/Hublot - 1300-1.jpg",
             description: "Automatic movement diving watch with unidirectional rotating bezel."
         },
         {
             id: 17,
-            name: "Business Classic",
+            name: "Hublot",
             category: "quartz",
-            brand: "elite",
-            price: 22900,
-            originalPrice: 27900,
-            image: "assets/watch3.jpg",
+            brand: "Hublot",
+            price: 1300,
+            originalPrice: 1550,
+            image: "assets/Hublot - 1300-2.jpg",
             description: "Understated elegance perfect for business professionals and daily wear."
         },
         {
             id: 18,
-            name: "Limited Edition",
+            name: "Hublot",
             category: "automatic",
-            brand: "heritage",
-            price: 59900,
-            originalPrice: 69900,
-            image: "assets/watch4.jpg",
+            brand: "Hublot",
+            price: 1300,
+            originalPrice: 1550,
+            image: "assets/Hublot - 1300-3.jpg",
             description: "Exclusive limited edition timepiece with numbered caseback and certificate."
         },
         {
             id: 19,
-            name: "Skeleton Automatic",
+            name: "Hublot",
             category: "automatic",
-            brand: "prestige",
-            price: 51900,
-            originalPrice: 59900,
-            image: "assets/watch5.jpg",
+            brand: "Hublot",
+            price: 1300,
+            originalPrice: 1550,
+            image: "assets/Hublot - 1300-4.jpg",
             description: "Open-heart design revealing the intricate mechanical movement within."
         },
         {
             id: 20,
-            name: "Military Field Watch",
+            name: "Hublot",
             category: "quartz",
-            brand: "timeflow",
-            price: 18900,
-            originalPrice: 22900,
-            image: "assets/watch1.jpg",
+            brand: "Hublot",
+            price: 1300,
+            originalPrice: 1530,
+            image: "assets/Hublot - 1300-5.jpg",
             description: "Rugged field watch inspired by military specifications with luminous dial."
         }
     ];
 
-    // DOM Elements
     const productsGrid = document.getElementById('productsGrid');
     const priceRange = document.getElementById('priceRange');
     const priceRangeValue = document.getElementById('priceRangeValue');
@@ -223,13 +221,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextPageBtn = document.querySelector('.next-page');
     const pageInfo = document.querySelector('.page-info');
 
-    // State variables
     let currentPage = 1;
     const productsPerPage = 9;
     let filteredProducts = [...products];
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Initialize the shop
     function initShop() {
         updatePriceRangeDisplay();
         renderProducts();
@@ -237,44 +233,34 @@ document.addEventListener('DOMContentLoaded', () => {
         setupEventListeners();
     }
 
-    // Update price range display
     function updatePriceRangeDisplay() {
         priceRangeValue.textContent = `৳ ${parseInt(priceRange.value).toLocaleString()}`;
     }
 
-    // Render products based on current filters and page
     function renderProducts() {
-        // Clear existing products
         productsGrid.innerHTML = '';
-        
-        // Calculate pagination
         const startIndex = (currentPage - 1) * productsPerPage;
         const endIndex = startIndex + productsPerPage;
         const productsToShow = filteredProducts.slice(startIndex, endIndex);
-        
-        // Update products count
         productsCount.textContent = filteredProducts.length;
-        
-        // Update pagination buttons
         updatePagination();
-        
-        // Render each product
         productsToShow.forEach(product => {
             const productCard = createProductCard(product);
             productsGrid.appendChild(productCard);
         });
     }
 
-    // Create product card HTML
     function createProductCard(product) {
         const card = document.createElement('div');
         card.className = 'product-card-shop animate-on-scroll fade-in-up';
-        
         const hasDiscount = product.originalPrice > product.price;
-        const discountPercent = hasDiscount 
-            ? Math.round((1 - product.price / product.originalPrice) * 100) 
+        const discountPercent = hasDiscount
+            ? Math.round((1 - product.price / product.originalPrice) * 100)
             : 0;
-        
+
+        // Create WhatsApp message text
+        const whatsappMessage = `Hello! I'm interested in your ${product.name} watch (ID: ${product.id}). Price: ৳${product.price.toLocaleString()}. ${product.description}`;
+
         card.innerHTML = `
             <div class="product-image-shop">
                 <img src="${product.image}" alt="${product.name}">
@@ -291,46 +277,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+                <a href="https://wa.me/8801973868913?text=${encodeURIComponent(whatsappMessage)}"
+                   class="whatsapp-product-btn"
+                   target="_blank"
+                   title="Inquire on WhatsApp">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+                    WhatsApp
+                </a>
             </div>
         `;
-        
         return card;
     }
 
-    // Filter products based on selected filters
     function filterProducts() {
-        // Get selected categories
         const selectedCategories = Array.from(
             document.querySelectorAll('input[name="category"]:checked')
         ).map(input => input.value);
-        
-        // Get selected brands
         const selectedBrands = Array.from(
             document.querySelectorAll('input[name="brand"]:checked')
         ).map(input => input.value);
-        
-        // Get max price
         const maxPrice = parseInt(priceRange.value);
-        
-        // Apply filters
         filteredProducts = products.filter(product => {
-            return selectedCategories.includes(product.category) &&
-                   selectedBrands.includes(product.brand) &&
-                   product.price <= maxPrice;
+            return (selectedCategories.length === 0 || selectedCategories.includes(product.category)) &&
+                (selectedBrands.length === 0 || selectedBrands.includes(product.brand)) &&
+                product.price <= maxPrice;
         });
-        
-        // Reset to first page
         currentPage = 1;
-        
-        // Re-render products
         renderProducts();
     }
 
-    // Sort products
     function sortProducts() {
         const sortValue = sortSelect.value;
-        
-        switch(sortValue) {
+        switch (sortValue) {
             case 'price-low':
                 filteredProducts.sort((a, b) => a.price - b.price);
                 break;
@@ -341,34 +319,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
                 break;
             default:
-                // Default sorting (by ID)
                 filteredProducts.sort((a, b) => a.id - b.id);
         }
-        
         renderProducts();
     }
 
-    // Update pagination UI
     function updatePagination() {
         const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-        
-        // Update page info
         pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-        
-        // Update button states
         prevPageBtn.disabled = currentPage === 1;
         nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
     }
 
-    // Add product to cart
     function addToCart(productId) {
         const product = products.find(p => p.id === productId);
-        
         if (!product) return;
-        
-        // Check if product already in cart
         const existingItem = cart.find(item => item.id === productId);
-        
         if (existingItem) {
             existingItem.quantity += 1;
         } else {
@@ -377,31 +343,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 quantity: 1
             });
         }
-        
-        // Save to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
-        
-        // Update UI
         updateCartUI();
-        
-        // Show confirmation
         showToast(`${product.name} added to cart!`);
     }
 
-    // Update cart UI
     function updateCartUI() {
-        // Update cart count
         const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
         cartCount.textContent = totalItems;
-        
-        // Update cart items
         renderCartItems();
-        
-        // Update cart total
         updateCartTotal();
     }
 
-    // Render cart items
     function renderCartItems() {
         if (cart.length === 0) {
             cartItems.innerHTML = `
@@ -413,9 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkoutBtn.disabled = true;
             return;
         }
-        
         checkoutBtn.disabled = false;
-        
         cartItems.innerHTML = '';
         cart.forEach(item => {
             const cartItem = document.createElement('div');
@@ -437,22 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             cartItems.appendChild(cartItem);
         });
-        
-        // Add event listeners to cart item buttons
         document.querySelectorAll('.decrease-quantity').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const id = parseInt(e.target.dataset.id);
                 updateQuantity(id, -1);
             });
         });
-        
         document.querySelectorAll('.increase-quantity').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const id = parseInt(e.target.dataset.id);
                 updateQuantity(id, 1);
             });
         });
-        
         document.querySelectorAll('.remove-item').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const id = parseInt(e.target.dataset.id);
@@ -461,122 +408,73 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update item quantity in cart
     function updateQuantity(productId, change) {
         const item = cart.find(item => item.id === productId);
-        
         if (!item) return;
-        
         item.quantity += change;
-        
-        // Remove item if quantity is 0
         if (item.quantity <= 0) {
             cart = cart.filter(i => i.id !== productId);
         }
-        
-        // Save to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
-        
-        // Update UI
         updateCartUI();
     }
 
-    // Remove item from cart
     function removeFromCart(productId) {
         cart = cart.filter(item => item.id !== productId);
-        
-        // Save to localStorage
         localStorage.setItem('cart', JSON.stringify(cart));
-        
-        // Update UI
         updateCartUI();
-        
-        // Show confirmation
         showToast('Item removed from cart');
     }
 
-    // Update cart total
     function updateCartTotal() {
         const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
         cartTotal.textContent = `৳ ${total.toLocaleString()}`;
     }
 
-    // Show toast notification
     function showToast(message) {
-        // Create toast element if it doesn't exist
         let toast = document.querySelector('.toast');
-        
         if (!toast) {
             toast = document.createElement('div');
             toast.className = 'toast';
             document.body.appendChild(toast);
         }
-        
-        // Set message and show
         toast.textContent = message;
         toast.classList.add('show');
-        
-        // Hide after 3 seconds
         setTimeout(() => {
             toast.classList.remove('show');
         }, 3000);
     }
 
-    // Setup event listeners
     function setupEventListeners() {
-        // Price range slider
         priceRange.addEventListener('input', updatePriceRangeDisplay);
-        
-        // Apply filters button
         applyFiltersBtn.addEventListener('click', filterProducts);
-        
-        // Reset filters button
         resetFiltersBtn.addEventListener('click', () => {
-            // Reset checkboxes
             document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
                 checkbox.checked = true;
             });
-            
-            // Reset price range
             priceRange.value = priceRange.max;
             updatePriceRangeDisplay();
-            
-            // Reset sort
             sortSelect.value = 'default';
-            
-            // Apply reset
             filterProducts();
         });
-        
-        // Sort select
         sortSelect.addEventListener('change', sortProducts);
-        
-        // Add to cart buttons (using event delegation)
         productsGrid.addEventListener('click', (e) => {
             if (e.target.classList.contains('add-to-cart-btn')) {
                 const productId = parseInt(e.target.dataset.id);
                 addToCart(productId);
             }
         });
-        
-        // Cart icon
         cartIcon.addEventListener('click', (e) => {
             e.preventDefault();
             cartSidebar.classList.add('open');
             cartOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
-        
-        // Close cart
         closeCart.addEventListener('click', closeCartSidebar);
         cartOverlay.addEventListener('click', closeCartSidebar);
-        
-        // Checkout button
         checkoutBtn.addEventListener('click', () => {
             alert('Proceeding to checkout. This functionality would connect to a payment system in a real implementation.');
         });
-        
-        // Pagination buttons
         prevPageBtn.addEventListener('click', () => {
             if (currentPage > 1) {
                 currentPage--;
@@ -584,7 +482,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
-        
         nextPageBtn.addEventListener('click', () => {
             const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
             if (currentPage < totalPages) {
@@ -595,18 +492,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Close cart sidebar
     function closeCartSidebar() {
         cartSidebar.classList.remove('open');
         cartOverlay.classList.remove('active');
         document.body.style.overflow = '';
     }
 
-    // Initialize the shop
     initShop();
 });
 
-// Add CSS for toast notifications
 const toastStyles = document.createElement('style');
 toastStyles.textContent = `
     .toast {
@@ -626,7 +520,7 @@ toastStyles.textContent = `
         opacity: 0;
         transition: opacity 0.3s, bottom 0.3s, visibility 0.3s;
     }
-    
+
     .toast.show {
         visibility: visible;
         opacity: 0.9;

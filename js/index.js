@@ -6,15 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const scrollToTopBtn = document.querySelector('.scroll-to-top');
 
-    // --- Mobile Navigation Toggle ---
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
-            document.body.classList.toggle('no-scroll'); // Prevent scrolling when nav is open
+            document.body.classList.toggle('no-scroll');
         });
 
-        // Close nav when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -23,8 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    // --- Header Scroll Effect ---
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             mainHeader.classList.add('scrolled');
@@ -32,14 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             mainHeader.classList.remove('scrolled');
         }
 
-        // Show/hide scroll to top button
         if (window.scrollY > 300) {
             scrollToTopBtn.classList.add('show');
         } else {
             scrollToTopBtn.classList.remove('show');
         }
 
-        // Active navigation link on scroll
         let currentActive = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop - mainHeader.offsetHeight;
@@ -57,9 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Smooth Scrolling for Navigation Links ---
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
@@ -72,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Scroll to Top Button ---
     if (scrollToTopBtn) {
         scrollToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -82,13 +74,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Intersection Observer for Scroll Animations ---
     const animateElements = document.querySelectorAll('.animate-on-scroll');
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add specific animation classes based on data attributes or class names
                 if (entry.target.classList.contains('fade-in-up')) {
                     entry.target.style.animation = `fadeInSlideUp 0.8s ease-out forwards ${entry.target.dataset.delay || '0s'}`;
                 } else if (entry.target.classList.contains('fade-in-scale')) {
@@ -98,10 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (entry.target.classList.contains('fade-in-right')) {
                     entry.target.style.animation = `fadeInSlideRight 0.8s ease-out forwards ${entry.target.dataset.delay || '0s'}`;
                 } else if (entry.target.classList.contains('fade-in')) {
-                     entry.target.style.animation = `fadeIn 0.8s ease-out forwards ${entry.target.dataset.delay || '0s'}`;
+                    entry.target.style.animation = `fadeIn 0.8s ease-out forwards ${entry.target.dataset.delay || '0s'}`;
                 }
 
-                // For elements that only need a visible class (e.g., section titles)
                 if (entry.target.classList.contains('section-title')) {
                     entry.target.classList.add('is-visible');
                 } else if (entry.target.classList.contains('product-card')) {
@@ -116,27 +105,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     entry.target.querySelector('form').classList.add('is-visible');
                 }
 
-                observer.unobserve(entry.target); // Stop observing once animated
+                observer.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Slightly reduce viewport for triggering
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
 
-    // Attach custom delays from HTML data attributes
     animateElements.forEach(el => {
         const delay = el.classList.value.match(/delay-(\d+)/);
         if (delay) {
-            el.dataset.delay = `${parseInt(delay[1]) * 0.2}s`; // Convert delay-1 to 0.2s, delay-2 to 0.4s, etc.
+            el.dataset.delay = `${parseInt(delay[1]) * 0.2}s`;
         } else {
             el.dataset.delay = '0s';
         }
         observer.observe(el);
     });
 
-    // Add fadeIn and slide animations to CSS if they are not already there
-    // These animations should be defined in style.css, but including them here as a reminder/fallback
     const styleSheet = document.styleSheets[0];
     const addKeyframes = (name, rules) => {
         if (![...styleSheet.cssRules].some(rule => rule.name === name)) {
@@ -149,16 +135,14 @@ document.addEventListener('DOMContentLoaded', () => {
     addKeyframes('fadeIn', 'from{opacity:0;}to{opacity:1;}');
 
 
-    // --- Video Section Logic ---
     const video = document.getElementById('advertisementVideo');
     const playPauseBtn = document.getElementById('playPauseBtn');
     const muteUnmuteBtn = document.getElementById('muteUnmuteBtn');
 
     if (video) {
-        // Autoplay and mute on load
+
         video.play().catch(error => {
             console.log("Autoplay prevented:", error);
-            // Show play button if autoplay fails
             playPauseBtn.innerHTML = '<i class="fas fa-play"></i> Play';
         });
         video.muted = true;
@@ -183,22 +167,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Optional: Pause video when not in viewport, play when in view
+
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Play if it's in view and not already playing (or was paused by user)
-                    if (playPauseBtn.innerHTML.includes('Play')) { // If it shows "Play", it means it's paused
-                        // Do nothing, let user initiate play
+
+                    if (playPauseBtn.innerHTML.includes('Play')) {
+
                     } else {
                         video.play();
                     }
                 } else {
-                    // Pause when out of view
+
                     video.pause();
                 }
             });
-        }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
+        }, { threshold: 0.5 });
 
         videoObserver.observe(video);
     }

@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.main-nav');
-    // Include nav-button for comprehensive coverage of all header links
     const navLinks = document.querySelectorAll('.main-nav .nav-link, .main-nav .nav-button');
     const mainHeader = document.querySelector('.main-header');
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
     const faqQuestions = document.querySelectorAll('.faq-question');
-    const scrollToTopBtn = document.querySelector('.scroll-to-top'); // If you add one to contact page
+    const scrollToTopBtn = document.querySelector('.scroll-to-top');
 
-    // --- Mobile Navigation Toggle ---
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
@@ -17,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('no-scroll');
         });
 
-        // Close nav when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -27,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Header Scroll Effect & Active Nav Link ---
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             mainHeader.classList.add('scrolled');
@@ -35,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mainHeader.classList.remove('scrolled');
         }
 
-        // Show/hide scroll to top button (if added)
         if (scrollToTopBtn) {
             if (window.scrollY > 300) {
                 scrollToTopBtn.classList.add('show');
@@ -44,8 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Set active navigation link based on current page path
-        // This is more reliable for multi-page nav
         navLinks.forEach(link => {
             link.classList.remove('active');
             const linkHref = link.getAttribute('href');
@@ -54,37 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
             if (linkHref.includes(currentPath.substring(currentPath.lastIndexOf('/') + 1))) {
                 link.classList.add('active');
             }
-            // Special handling for the contact link if it's an anchor on index page
-            // (though for contact.html, 'contact.html' itself makes it active)
-            // If the "Contact" in header points to index.html#contact, you'd need more complex logic.
-            // For now, assuming direct link to contact.html
         });
     });
 
-    // --- Smooth Scrolling for Navigation Links ---
-    // This is primarily for internal page anchors.
-    // External links will perform default navigation.
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            // Check if it's an internal anchor link on the current page
             if (href.startsWith('#')) {
                 e.preventDefault();
                 const targetId = href;
                 const targetSection = document.querySelector(targetId);
                 if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - mainHeader.offsetHeight; // Adjust for fixed header
+                    const offsetTop = targetSection.offsetTop - mainHeader.offsetHeight;
                     window.scrollTo({
                         top: offsetTop,
                         behavior: 'smooth'
                     });
                 }
             }
-            // For links like 'index.html#contact', let default navigation happen
         });
     });
 
-    // --- Scroll to Top Button (if added to contact.html) ---
     if (scrollToTopBtn) {
         scrollToTopBtn.addEventListener('click', () => {
             window.scrollTo({
@@ -94,15 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Form Validation and Submission ---
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            clearErrors(); // Reset previous errors
-            
+            clearErrors();
             if (validateForm()) {
-                simulateFormSubmission(); // Simulate form submission
+                simulateFormSubmission();
             }
         });
     }
@@ -167,39 +147,35 @@ document.addEventListener('DOMContentLoaded', () => {
             
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-            contactForm.reset(); // Clear form fields
+            contactForm.reset();
         }, 2000);
     }
 
-    // --- FAQ Accordion Functionality ---
     if (faqQuestions.length > 0) {
         faqQuestions.forEach(question => {
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
                 
-                // Close other open FAQs
                 document.querySelectorAll('.faq-answer.active').forEach(activeAnswer => {
                     if (activeAnswer !== answer) {
                         activeAnswer.classList.remove('active');
-                        activeAnswer.style.maxHeight = null; // Reset height
+                        activeAnswer.style.maxHeight = null;
                         activeAnswer.previousElementSibling.classList.remove('active');
                     }
                 });
                 
-                // Toggle current FAQ
                 question.classList.toggle('active');
                 if (answer.classList.contains('active')) {
                     answer.classList.remove('active');
-                    answer.style.maxHeight = null; // Collapse
+                    answer.style.maxHeight = null;
                 } else {
                     answer.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + "px"; // Expand to content height
+                    answer.style.maxHeight = answer.scrollHeight + "px";
                 }
             });
         });
     }
 
-    // --- Intersection Observer for Scroll Animations ---
     const animateElements = document.querySelectorAll('.animate-on-scroll');
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -225,8 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (delay) {
             el.dataset.delay = `${parseInt(delay[1]) * 0.2}s`;
         } else {
-              el.dataset.delay = '0s';
- }
-observer.observe(el);
-});
+            el.dataset.delay = '0s';
+        }
+        observer.observe(el);
+    });
 });
